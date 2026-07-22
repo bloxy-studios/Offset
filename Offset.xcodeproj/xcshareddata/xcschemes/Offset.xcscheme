@@ -52,11 +52,6 @@
          </TestableReference>
          <TestableReference
             skipped = "YES">
-            <!-- Skipped 2026-07-22: OffsetUITests-Runner crashes at bootstrap
-                 (SIGABRT, "operation never finished bootstrapping") on the
-                 iOS 26.5 simulator before any test runs — reproduced twice
-                 (jobs e59c0b22 / eed79106). Infra-level, template tests only.
-                 Owner: run once from Xcode GUI; if green, set skipped = "NO". -->
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D6B8C7C13010979500C2F575"

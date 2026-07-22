@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FF5E70000000000000000A2 /* OffsetKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0FF5E70000000000000000A1 /* OffsetKit */; };
 		D6B8C7DC301098AA00C2F575 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8C7DB301098A700C2F575 /* WidgetKit.framework */; };
 		D6B8C7DE301098AA00C2F575 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8C7DD301098AA00C2F575 /* SwiftUI.framework */; };
 		D6B8C7ED301098EA00C2F575 /* OffsetWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D6B8C7D9301098A400C2F575 /* OffsetWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D6B8C7F530109B8200C2F575 /* OffsetKit in Frameworks */ = {isa = PBXBuildFile; productRef = D6B8C7F430109B8200C2F575 /* OffsetKit */; };
 		D6B8C7F730109BA700C2F575 /* OffsetKit in Frameworks */ = {isa = PBXBuildFile; productRef = D6B8C7F630109BA700C2F575 /* OffsetKit */; };
-		D6B8C7FA30109C4700C2F575 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */; };
-		D6B8C7FB30109C4700C2F575 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +61,6 @@
 		D6B8C7DB301098A700C2F575 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D6B8C7DD301098AA00C2F575 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		D6B8C7F330109A4D00C2F575 /* OffsetKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OffsetKit; sourceTree = "<group>"; };
-		D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 		D6B8C7FF3010A4F600C2F575 /* OffsetWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OffsetWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		D6B8C80A3010AB8300C2F575 /* BUILDLOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BUILDLOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +109,11 @@
 			path = OffsetWidgets;
 			sourceTree = "<group>";
 		};
+		D6B8C7F830109BF000C2F575 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D6B8C8013010A82D00C2F575 /* Config */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Config;
@@ -131,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF5E70000000000000000A2 /* OffsetKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,14 +195,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D6B8C7F830109BF000C2F575 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,6 +214,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D6B8C7AD3010979000C2F575 /* Offset */,
+				D6B8C7F830109BF000C2F575 /* Shared */,
 				D6B8C8013010A82D00C2F575 /* Config */,
 			);
 			name = Offset;
@@ -246,6 +243,7 @@
 			);
 			name = OffsetTests;
 			packageProductDependencies = (
+				0FF5E70000000000000000A1 /* OffsetKit */,
 			);
 			productName = OffsetTests;
 			productReference = D6B8C7B83010979500C2F575 /* OffsetTests.xctest */;
@@ -288,6 +286,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D6B8C7DF301098AA00C2F575 /* OffsetWidgets */,
+				D6B8C7F830109BF000C2F575 /* Shared */,
 			);
 			name = OffsetWidgetsExtension;
 			packageProductDependencies = (
@@ -381,7 +380,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6B8C7FA30109C4700C2F575 /* SharedConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,7 +401,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6B8C7FB30109C4700C2F575 /* SharedConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +839,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0FF5E70000000000000000A1 /* OffsetKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OffsetKit;
+		};
 		D6B8C7F430109B8200C2F575 /* OffsetKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OffsetKit;
