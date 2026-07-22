@@ -12,11 +12,12 @@ concurrency:
 
 jobs:
   build-and-test:
-    # OPTION A (recommended): your Mac, registered as a self-hosted runner labeled "offset".
-    runs-on: [self-hosted, macOS, offset]
-    # OPTION B: GitHub-hosted fallback — replace the line above with:
-    #   runs-on: macos-latest
-    # (macOS minutes bill at 10x on private repos; the Xcode check below verifies 26.x is present)
+    # DEFAULT: GitHub-hosted macOS runner (Apple Silicon). Free & unlimited for PUBLIC repos.
+    # The "Select Xcode 26.x" step below is the compatibility gate if the image inventory shifts.
+    runs-on: macos-latest
+    # Alternative (only if a self-hosted runner is ever registered — and then keep the repo PRIVATE;
+    # self-hosted + public repo = fork-PR code-execution risk):
+    #   runs-on: [self-hosted, macOS, offset]
     timeout-minutes: 45
 
     steps:
