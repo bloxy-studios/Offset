@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "calendars": [
+    {
+      "marketIDs": ["usEquities"],
+      "policy": "exact",
+      "validThrough": "2027-12-31",
+      "days": [
+        { "date": "2026-01-01", "name": "New Year's Day", "closure": "full" },
+        { "date": "2026-01-19", "name": "Martin Luther King, Jr. Day", "closure": "full" },
+        { "date": "2026-02-16", "name": "Washington's Birthday", "closure": "full" },
+        { "date": "2026-04-03", "name": "Good Friday", "closure": "full" },
+        { "date": "2026-05-25", "name": "Memorial Day", "closure": "full" },
+        { "date": "2026-06-19", "name": "Juneteenth National Independence Day", "closure": "full" },
+        { "date": "2026-07-03", "name": "Independence Day (observed)", "closure": "full" },
+        { "date": "2026-09-07", "name": "Labor Day", "closure": "full" },
+        { "date": "2026-11-26", "name": "Thanksgiving Day", "closure": "full" },
+        { "date": "2026-11-27", "name": "Day after Thanksgiving", "closure": "half", "earlyClose": { "hour": 13, "minute": 0 } },
+        { "date": "2026-12-24", "name": "Christmas Eve", "closure": "half", "earlyClose": { "hour": 13, "minute": 0 } },
+        { "date": "2026-12-25", "name": "Christmas Day", "closure": "full" },
+        { "date": "2027-01-01", "name": "New Year's Day", "closure": "full" },
+        { "date": "2027-01-18", "name": "Martin Luther King, Jr. Day", "closure": "full" },
+        { "date": "2027-02-15", "name": "Washington's Birthday", "closure": "full" },
+        { "date": "2027-03-26", "name": "Good Friday", "closure": "full" },
+        { "date": "2027-05-31", "name": "Memorial Day", "closure": "full" },
+        { "date": "2027-06-18", "name": "Juneteenth (observed)", "closure": "full" },
+        { "date": "2027-07-05", "name": "Independence Day (observed)", "closure": "full" },
+        { "date": "2027-09-06", "name": "Labor Day", "closure": "full" },
+        { "date": "2027-11-25", "name": "Thanksgiving Day", "closure": "full" },
+        { "date": "2027-11-26", "name": "Day after Thanksgiving", "closure": "half", "earlyClose": { "hour": 13, "minute": 0 } },
+        { "date": "2027-12-24", "name": "Christmas Day (observed)", "closure": "full" }
+      ]
+    },
+    {
+      "marketIDs": ["lse"],
+      "policy": "exact",
+      "validThrough": "2027-12-31",
+      "days": [
+        { "date": "2026-01-01", "name": "New Year's Day", "closure": "full" },
+        { "date": "2026-04-03", "name": "Good Friday", "closure": "full" },
+        { "date": "2026-04-06", "name": "Easter Monday", "closure": "full" },
+        { "date": "2026-05-04", "name": "Early May Bank Holiday", "closure": "full" },
+        { "date": "2026-05-25", "name": "Spring Bank Holiday", "closure": "full" },
+        { "date": "2026-08-31", "name": "Summer Bank Holiday", "closure": "full" },
+        { "date": "2026-12-24", "name": "Christmas Eve", "closure": "half", "earlyClose": { "hour": 12, "minute": 30 } },
+        { "date": "2026-12-25", "name": "Christmas Day", "closure": "full" },
+        { "date": "2026-12-28", "name": "Boxing Day (substitute)", "closure": "full" },
+        { "date": "2026-12-31", "name": "New Year's Eve", "closure": "half", "earlyClose": { "hour": 12, "minute": 30 } },
+        { "date": "2027-01-01", "name": "New Year's Day", "closure": "full" },
+        { "date": "2027-03-26", "name": "Good Friday", "closure": "full" },
+        { "date": "2027-03-29", "name": "Easter Monday", "closure": "full" },
+        { "date": "2027-05-03", "name": "Early May Bank Holiday", "closure": "full" },
+        { "date": "2027-05-31", "name": "Spring Bank Holiday", "closure": "full" },
+        { "date": "2027-08-30", "name": "Summer Bank Holiday", "closure": "full" },
+        { "date": "2027-12-24", "name": "Christmas Eve", "closure": "half", "earlyClose": { "hour": 12, "minute": 30 } },
+        { "date": "2027-12-27", "name": "Christmas Day (substitute)", "closure": "full" },
+        { "date": "2027-12-28", "name": "Boxing Day (substitute)", "closure": "full" },
+        { "date": "2027-12-31", "name": "New Year's Eve", "closure": "half", "earlyClose": { "hour": 12, "minute": 30 } }
+      ]
+    },
+    {
+      "marketIDs": ["cmeEquity"],
+      "policy": "advisoryOnUSHolidays",
+      "validThrough": "2027-12-31",
+      "days": []
+    }
+  ]
+}

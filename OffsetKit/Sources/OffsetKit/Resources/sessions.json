@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "markets": [
+    {
+      "id": "fxSydney", "name": "Sydney Session", "shortName": "SYD",
+      "kind": "forexSession", "timeZoneID": "Australia/Sydney",
+      "colorToken": "sydneyAmber", "symbolName": "globe.asia.australia.fill",
+      "segments": [
+        { "kind": "regular", "open": { "hour": 7, "minute": 0 }, "close": { "hour": 16, "minute": 0 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false }
+      ]
+    },
+    {
+      "id": "fxTokyo", "name": "Tokyo Session", "shortName": "TYO",
+      "kind": "forexSession", "timeZoneID": "Asia/Tokyo",
+      "colorToken": "tokyoRose", "symbolName": "sunrise.fill",
+      "segments": [
+        { "kind": "regular", "open": { "hour": 9, "minute": 0 }, "close": { "hour": 18, "minute": 0 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false }
+      ]
+    },
+    {
+      "id": "fxLondon", "name": "London Session", "shortName": "LDN",
+      "kind": "forexSession", "timeZoneID": "Europe/London",
+      "colorToken": "londonBlue", "symbolName": "globe.europe.africa.fill",
+      "segments": [
+        { "kind": "regular", "open": { "hour": 8, "minute": 0 }, "close": { "hour": 17, "minute": 0 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false }
+      ]
+    },
+    {
+      "id": "fxNewYork", "name": "New York Session", "shortName": "NYC",
+      "kind": "forexSession", "timeZoneID": "America/New_York",
+      "colorToken": "newYorkGreen", "symbolName": "globe.americas.fill",
+      "segments": [
+        { "kind": "regular", "open": { "hour": 8, "minute": 0 }, "close": { "hour": 17, "minute": 0 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false }
+      ]
+    },
+    {
+      "id": "usEquities", "name": "US Stocks (NYSE·Nasdaq)", "shortName": "US",
+      "kind": "equityExchange", "timeZoneID": "America/New_York",
+      "colorToken": "usIndigo", "symbolName": "building.columns.fill",
+      "segments": [
+        { "kind": "preMarket", "open": { "hour": 4, "minute": 0 }, "close": { "hour": 9, "minute": 30 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false },
+        { "kind": "regular", "open": { "hour": 9, "minute": 30 }, "close": { "hour": 16, "minute": 0 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false },
+        { "kind": "afterHours", "open": { "hour": 16, "minute": 0 }, "close": { "hour": 20, "minute": 0 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false }
+      ]
+    },
+    {
+      "id": "lse", "name": "London Stock Exchange", "shortName": "LSE",
+      "kind": "equityExchange", "timeZoneID": "Europe/London",
+      "colorToken": "lseCyan", "symbolName": "building.2.fill",
+      "segments": [
+        { "kind": "openingAuction", "open": { "hour": 7, "minute": 50 }, "close": { "hour": 8, "minute": 0 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false },
+        { "kind": "regular", "open": { "hour": 8, "minute": 0 }, "close": { "hour": 16, "minute": 30 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false },
+        { "kind": "closingAuction", "open": { "hour": 16, "minute": 30 }, "close": { "hour": 16, "minute": 35 },
+          "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false }
+      ]
+    },
+    {
+      "id": "cmeEquity", "name": "CME Globex (Futures)", "shortName": "CME",
+      "kind": "futures", "timeZoneID": "America/Chicago",
+      "colorToken": "cmeOrange", "symbolName": "chart.line.uptrend.xyaxis",
+      "segments": [
+        { "kind": "regular", "open": { "hour": 17, "minute": 0 }, "close": { "hour": 16, "minute": 0 },
+          "weekdays": [1, 2, 3, 4, 5], "wrapsMidnight": true },
+        { "kind": "maintenanceBreak", "open": { "hour": 16, "minute": 0 }, "close": { "hour": 17, "minute": 0 },
+          "weekdays": [2, 3, 4, 5], "wrapsMidnight": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "timeZoneID": "America/New_York",
+  "killzones": [
+    { "id": "asia", "name": "Asian Killzone",
+      "open": { "hour": 20, "minute": 0 }, "close": { "hour": 0, "minute": 0 },
+      "weekdays": [1, 2, 3, 4, 5], "wrapsMidnight": true },
+    { "id": "london", "name": "London Killzone",
+      "open": { "hour": 2, "minute": 0 }, "close": { "hour": 5, "minute": 0 },
+      "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false },
+    { "id": "nyAM", "name": "NY AM Killzone",
+      "open": { "hour": 7, "minute": 0 }, "close": { "hour": 10, "minute": 0 },
+      "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false },
+    { "id": "londonClose", "name": "London Close KZ",
+      "open": { "hour": 10, "minute": 0 }, "close": { "hour": 12, "minute": 0 },
+      "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false },
+    { "id": "nyPM", "name": "NY PM Session",
+      "open": { "hour": 13, "minute": 30 }, "close": { "hour": 16, "minute": 0 },
+      "weekdays": [2, 3, 4, 5, 6], "wrapsMidnight": false }
+  ]
+}

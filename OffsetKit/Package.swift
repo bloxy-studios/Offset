@@ -1,5 +1,7 @@
 // swift-tools-version: 6.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// OffsetKit — pure logic package for Offset (models, engine, scheduling, news, AI, storage).
+// Concurrency posture per docs/02-ARCHITECTURE.md §2: default MainActor isolation at the
+// module level; model/engine types opt out explicitly with `nonisolated`.
 
 import PackageDescription
 
@@ -7,21 +9,27 @@ let package = Package(
     name: "OffsetKit",
     platforms: [.iOS(.v26)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "OffsetKit",
             targets: ["OffsetKit"]
         ),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "OffsetKit"
+            name: "OffsetKit",
+            resources: [
+                .process("Resources")
+            ],
+            swiftSettings: [
+                .defaultIsolation(MainActor.self)
+            ]
         ),
         .testTarget(
             name: "OffsetKitTests",
-            dependencies: ["OffsetKit"]
+            dependencies: ["OffsetKit"],
+            swiftSettings: [
+                .defaultIsolation(MainActor.self)
+            ]
         ),
     ],
     swiftLanguageModes: [.v6]
