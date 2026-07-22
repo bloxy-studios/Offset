@@ -87,7 +87,7 @@ struct RefreshCoordinatorTests {
         defaults.removePersistentDomain(forName: suiteName)
         let engine = SessionScheduleEngine(seed: try SessionScheduleEngine.loadBundledSeed())
         let store = ScheduleStore(engine: engine, settingsStore: SettingsStore(defaults: defaults))
-        let coordinator = RefreshCoordinator(scheduleStore: store)
+        let coordinator = RefreshCoordinator(scheduleStore: store, alertsStore: AlertsStore())
 
         #expect(store.referenceDate == .distantPast)
         let now = Date(timeIntervalSince1970: 1_773_068_400)
@@ -104,7 +104,7 @@ struct RefreshCoordinatorTests {
         defaults.removePersistentDomain(forName: suiteName)
         let engine = SessionScheduleEngine(seed: try SessionScheduleEngine.loadBundledSeed())
         let store = ScheduleStore(engine: engine, settingsStore: SettingsStore(defaults: defaults))
-        let coordinator = RefreshCoordinator(scheduleStore: store)
+        let coordinator = RefreshCoordinator(scheduleStore: store, alertsStore: AlertsStore())
         let zone = try #require(TimeZone(identifier: "America/New_York"))
 
         let monday = Date(timeIntervalSince1970: 1_773_068_400)

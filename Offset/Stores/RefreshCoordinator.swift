@@ -27,11 +27,13 @@ final class RefreshCoordinator {
     private(set) var backgroundTasksRegistered = false
 
     private let scheduleStore: ScheduleStore
+    private let alertsStore: AlertsStore
     @ObservationIgnored private nonisolated let logger =
         Logger(subsystem: SharedConstants.logSubsystem, category: "refresh")
 
-    init(scheduleStore: ScheduleStore) {
+    init(scheduleStore: ScheduleStore, alertsStore: AlertsStore) {
         self.scheduleStore = scheduleStore
+        self.alertsStore = alertsStore
     }
 
     // MARK: BGTask registration (must complete before end of app launch)
@@ -93,7 +95,7 @@ final class RefreshCoordinator {
     private func handleScheduleRefreshTask(_ task: BGAppRefreshTask) {
         submitBackgroundRequests()                       // 1. always re-submit first
         let work = Task { @MainActor in
-            self.refreshSchedulePipeline()               // 2–5. M4/M5 extend this
+            await self.refreshSchedulePipelineAsync()    // 2–4 (M5 adds LA maintenance)
             guard !Task.isCancelled else { return }
             task.setTaskCompleted(success: true)
         }
@@ -148,9 +150,27 @@ final class RefreshCoordinator {
 
     private func refreshSchedulePipeline(now: Date = Date(), zone: TimeZone = .current) {
         scheduleStore.refresh(now: now, zone: zone)
-        // M4: NotificationPlanner → apply ≤56 pending; AlarmPlanner reconcile.
-        // M5: ActivityController maintenance (phase/staleDate roll, chain pre-schedule).
         lastRefresh = now
+        // Notification rebuild is async (system calls); fire-and-forget from the
+        // sync signal paths — the plan is deterministic for a given `now`.
+        Task { await self.rebuildAlerts(now: now) }
         logger.debug("refresh: pipeline pass complete (\(self.scheduleStore.todayEvents.count) events today)")
+    }
+
+    private func refreshSchedulePipelineAsync(now: Date = Date(), zone: TimeZone = .current) async {
+        scheduleStore.refresh(now: now, zone: zone)
+        lastRefresh = now
+        await rebuildAlerts(now: now)
+        // M5: ActivityController maintenance (phase/staleDate roll, chain pre-schedule).
+    }
+
+    /// 04 §1 rebuild: 7-day event horizon → NotificationPlanner → idempotent apply.
+    func rebuildAlerts(now: Date = Date()) async {
+        alertsStore.expireMutes(now: now)
+        await alertsStore.rebuild(
+            events: horizonEvents(from: scheduleStore, now: now),
+            rules: scheduleStore.settings.alertRules,
+            now: now
+        )
     }
 }

@@ -12,12 +12,15 @@
 import OffsetKit
 import OSLog
 import SwiftUI
+import UserNotifications
 
 @main
 struct OffsetApp: App {
 
     @State private var scheduleStore: ScheduleStore
     @State private var refreshCoordinator: RefreshCoordinator
+    @State private var alertsStore: AlertsStore
+    private let notificationDelegate: NotificationDelegate
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
@@ -33,12 +36,20 @@ struct OffsetApp: App {
         }
 
         let store = ScheduleStore(engine: engine)
-        let coordinator = RefreshCoordinator(scheduleStore: store)
+        let alerts = AlertsStore()
+        let coordinator = RefreshCoordinator(scheduleStore: store, alertsStore: alerts)
         coordinator.registerBackgroundTasks()            // before end of launch
         KeychainStore().bootstrap()                      // secrets pipeline (02 §6)
 
+        // Notification pipeline (04): delegate + categories at launch.
+        let delegate = NotificationDelegate(scheduleStore: store, alertsStore: alerts)
+        UNUserNotificationCenter.current().delegate = delegate
+        notificationDelegate = delegate
+        alerts.registerCategories()
+
         _scheduleStore = State(initialValue: store)
         _refreshCoordinator = State(initialValue: coordinator)
+        _alertsStore = State(initialValue: alerts)
     }
 
     var body: some Scene {
@@ -46,6 +57,7 @@ struct OffsetApp: App {
             ContentView()
                 .environment(scheduleStore)
                 .environment(refreshCoordinator)
+                .environment(alertsStore)
                 .onReceive(NotificationCenter.default.publisher(
                     for: UIApplication.significantTimeChangeNotification)) { _ in
                     refreshCoordinator.handleSignificantTimeChange()
