@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D6B8C7DC301098AA00C2F575 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8C7DB301098A700C2F575 /* WidgetKit.framework */; };
+		D6B8C7DE301098AA00C2F575 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8C7DD301098AA00C2F575 /* SwiftUI.framework */; };
+		D6B8C7ED301098EA00C2F575 /* OffsetWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D6B8C7D9301098A400C2F575 /* OffsetWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D6B8C7B93010979500C2F575 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,13 +27,47 @@
 			remoteGlobalIDString = D6B8C7AA3010978F00C2F575;
 			remoteInfo = Offset;
 		};
+		D6B8C7EB301098EA00C2F575 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6B8C7A33010978F00C2F575 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6B8C7D8301098A400C2F575;
+			remoteInfo = OffsetWidgetsExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D6B8C7F2301098EA00C2F575 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D6B8C7ED301098EA00C2F575 /* OffsetWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D6B8C7AB3010979000C2F575 /* Offset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B8C7B83010979500C2F575 /* OffsetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OffsetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B8C7C23010979500C2F575 /* OffsetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OffsetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6B8C7D9301098A400C2F575 /* OffsetWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OffsetWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6B8C7DB301098A700C2F575 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D6B8C7DD301098AA00C2F575 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D6B8C7EE301098EA00C2F575 /* Exceptions for "OffsetWidgets" folder in "OffsetWidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D6B8C7D8301098A400C2F575 /* OffsetWidgetsExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D6B8C7AD3010979000C2F575 /* Offset */ = {
@@ -43,6 +83,14 @@
 		D6B8C7C53010979500C2F575 /* OffsetUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = OffsetUITests;
+			sourceTree = "<group>";
+		};
+		D6B8C7DF301098AA00C2F575 /* OffsetWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D6B8C7EE301098EA00C2F575 /* Exceptions for "OffsetWidgets" folder in "OffsetWidgetsExtension" target */,
+			);
+			path = OffsetWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,6 +117,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6B8C7D6301098A400C2F575 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6B8C7DE301098AA00C2F575 /* SwiftUI.framework in Frameworks */,
+				D6B8C7DC301098AA00C2F575 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +135,8 @@
 				D6B8C7AD3010979000C2F575 /* Offset */,
 				D6B8C7BB3010979500C2F575 /* OffsetTests */,
 				D6B8C7C53010979500C2F575 /* OffsetUITests */,
+				D6B8C7DF301098AA00C2F575 /* OffsetWidgets */,
+				D6B8C7DA301098A700C2F575 /* Frameworks */,
 				D6B8C7AC3010979000C2F575 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +147,18 @@
 				D6B8C7AB3010979000C2F575 /* Offset.app */,
 				D6B8C7B83010979500C2F575 /* OffsetTests.xctest */,
 				D6B8C7C23010979500C2F575 /* OffsetUITests.xctest */,
+				D6B8C7D9301098A400C2F575 /* OffsetWidgetsExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D6B8C7DA301098A700C2F575 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6B8C7DB301098A700C2F575 /* WidgetKit.framework */,
+				D6B8C7DD301098AA00C2F575 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,10 +171,12 @@
 				D6B8C7A73010978F00C2F575 /* Sources */,
 				D6B8C7A83010978F00C2F575 /* Frameworks */,
 				D6B8C7A93010978F00C2F575 /* Resources */,
+				D6B8C7F2301098EA00C2F575 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D6B8C7EC301098EA00C2F575 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				D6B8C7AD3010979000C2F575 /* Offset */,
@@ -163,6 +234,28 @@
 			productReference = D6B8C7C23010979500C2F575 /* OffsetUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		D6B8C7D8301098A400C2F575 /* OffsetWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6B8C7EF301098EA00C2F575 /* Build configuration list for PBXNativeTarget "OffsetWidgetsExtension" */;
+			buildPhases = (
+				D6B8C7D5301098A400C2F575 /* Sources */,
+				D6B8C7D6301098A400C2F575 /* Frameworks */,
+				D6B8C7D7301098A400C2F575 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D6B8C7DF301098AA00C2F575 /* OffsetWidgets */,
+			);
+			name = OffsetWidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = OffsetWidgetsExtension;
+			productReference = D6B8C7D9301098A400C2F575 /* OffsetWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +277,9 @@
 						CreatedOnToolsVersion = 26.6;
 						TestTargetID = D6B8C7AA3010978F00C2F575;
 					};
+					D6B8C7D8301098A400C2F575 = {
+						CreatedOnToolsVersion = 26.6;
+					};
 				};
 			};
 			buildConfigurationList = D6B8C7A63010978F00C2F575 /* Build configuration list for PBXProject "Offset" */;
@@ -203,6 +299,7 @@
 				D6B8C7AA3010978F00C2F575 /* Offset */,
 				D6B8C7B73010979500C2F575 /* OffsetTests */,
 				D6B8C7C13010979500C2F575 /* OffsetUITests */,
+				D6B8C7D8301098A400C2F575 /* OffsetWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +320,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D6B8C7C03010979500C2F575 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6B8C7D7301098A400C2F575 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +357,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6B8C7D5301098A400C2F575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +376,11 @@
 			isa = PBXTargetDependency;
 			target = D6B8C7AA3010978F00C2F575 /* Offset */;
 			targetProxy = D6B8C7C33010979500C2F575 /* PBXContainerItemProxy */;
+		};
+		D6B8C7EC301098EA00C2F575 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6B8C7D8301098A400C2F575 /* OffsetWidgetsExtension */;
+			targetProxy = D6B8C7EB301098EA00C2F575 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -405,6 +521,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,12 +530,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bloxy-studios.Offset";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -437,6 +558,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,12 +567,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bloxy-studios.Offset";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -538,6 +664,76 @@
 			};
 			name = Release;
 		};
+		D6B8C7F0301098EA00C2F575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K63K8RN4S8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OffsetWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OffsetWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bloxy-studios.Offset.OffsetWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D6B8C7F1301098EA00C2F575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K63K8RN4S8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OffsetWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OffsetWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bloxy-studios.Offset.OffsetWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -573,6 +769,15 @@
 			buildConfigurations = (
 				D6B8C7D33010979500C2F575 /* Debug */,
 				D6B8C7D43010979500C2F575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6B8C7EF301098EA00C2F575 /* Build configuration list for PBXNativeTarget "OffsetWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6B8C7F0301098EA00C2F575 /* Debug */,
+				D6B8C7F1301098EA00C2F575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
