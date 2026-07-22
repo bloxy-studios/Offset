@@ -10,6 +10,11 @@
 		D6B8C7DC301098AA00C2F575 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8C7DB301098A700C2F575 /* WidgetKit.framework */; };
 		D6B8C7DE301098AA00C2F575 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8C7DD301098AA00C2F575 /* SwiftUI.framework */; };
 		D6B8C7ED301098EA00C2F575 /* OffsetWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D6B8C7D9301098A400C2F575 /* OffsetWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D6B8C7F530109B8200C2F575 /* OffsetKit in Frameworks */ = {isa = PBXBuildFile; productRef = D6B8C7F430109B8200C2F575 /* OffsetKit */; };
+		D6B8C7F730109BA700C2F575 /* OffsetKit in Frameworks */ = {isa = PBXBuildFile; productRef = D6B8C7F630109BA700C2F575 /* OffsetKit */; };
+		D6B8C7FA30109C4700C2F575 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */; };
+		D6B8C7FB30109C4700C2F575 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */; };
+		D6B8C80B3010AB9B00C2F575 /* BUILDLOG.md in Sources */ = {isa = PBXBuildFile; fileRef = D6B8C80A3010AB8300C2F575 /* BUILDLOG.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,10 @@
 		D6B8C7D9301098A400C2F575 /* OffsetWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OffsetWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B8C7DB301098A700C2F575 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D6B8C7DD301098AA00C2F575 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D6B8C7F330109A4D00C2F575 /* OffsetKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OffsetKit; sourceTree = "<group>"; };
+		D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
+		D6B8C7FF3010A4F600C2F575 /* OffsetWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OffsetWidgetsExtension.entitlements; sourceTree = "<group>"; };
+		D6B8C80A3010AB8300C2F575 /* BUILDLOG.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUILDLOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -67,11 +76,21 @@
 			);
 			target = D6B8C7D8301098A400C2F575 /* OffsetWidgetsExtension */;
 		};
+		D6B8C7FE3010A48A00C2F575 /* Exceptions for "Offset" folder in "Offset" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D6B8C7AA3010978F00C2F575 /* Offset */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D6B8C7AD3010979000C2F575 /* Offset */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D6B8C7FE3010A48A00C2F575 /* Exceptions for "Offset" folder in "Offset" target */,
+			);
 			path = Offset;
 			sourceTree = "<group>";
 		};
@@ -93,6 +112,11 @@
 			path = OffsetWidgets;
 			sourceTree = "<group>";
 		};
+		D6B8C8013010A82D00C2F575 /* Config */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B8C7F530109B8200C2F575 /* OffsetKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +148,7 @@
 			files = (
 				D6B8C7DE301098AA00C2F575 /* SwiftUI.framework in Frameworks */,
 				D6B8C7DC301098AA00C2F575 /* WidgetKit.framework in Frameworks */,
+				D6B8C7F730109BA700C2F575 /* OffsetKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +158,11 @@
 		D6B8C7A23010978F00C2F575 = {
 			isa = PBXGroup;
 			children = (
+				D6B8C80A3010AB8300C2F575 /* BUILDLOG.md */,
+				D6B8C8013010A82D00C2F575 /* Config */,
+				D6B8C7FF3010A4F600C2F575 /* OffsetWidgetsExtension.entitlements */,
+				D6B8C7F830109BF000C2F575 /* Shared */,
+				D6B8C7F330109A4D00C2F575 /* OffsetKit */,
 				D6B8C7AD3010979000C2F575 /* Offset */,
 				D6B8C7BB3010979500C2F575 /* OffsetTests */,
 				D6B8C7C53010979500C2F575 /* OffsetUITests */,
@@ -161,6 +192,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D6B8C7F830109BF000C2F575 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,9 +219,11 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D6B8C7AD3010979000C2F575 /* Offset */,
+				D6B8C8013010A82D00C2F575 /* Config */,
 			);
 			name = Offset;
 			packageProductDependencies = (
+				D6B8C7F430109B8200C2F575 /* OffsetKit */,
 			);
 			productName = Offset;
 			productReference = D6B8C7AB3010979000C2F575 /* Offset.app */;
@@ -251,6 +292,7 @@
 			);
 			name = OffsetWidgetsExtension;
 			packageProductDependencies = (
+				D6B8C7F630109BA700C2F575 /* OffsetKit */,
 			);
 			productName = OffsetWidgetsExtension;
 			productReference = D6B8C7D9301098A400C2F575 /* OffsetWidgetsExtension.appex */;
@@ -340,6 +382,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B8C80B3010AB9B00C2F575 /* BUILDLOG.md in Sources */,
+				D6B8C7FA30109C4700C2F575 /* SharedConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B8C7FB30109C4700C2F575 /* SharedConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +432,8 @@
 /* Begin XCBuildConfiguration section */
 		D6B8C7CA3010979500C2F575 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = D6B8C8013010A82D00C2F575 /* Config */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -451,6 +498,8 @@
 		};
 		D6B8C7CB3010979500C2F575 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = D6B8C8013010A82D00C2F575 /* Config */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -511,11 +560,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Offset/Offset.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K63K8RN4S8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Offset/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -548,11 +601,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Offset/Offset.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K63K8RN4S8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Offset/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -669,6 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OffsetWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K63K8RN4S8;
@@ -704,6 +762,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OffsetWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K63K8RN4S8;
@@ -783,6 +842,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6B8C7F430109B8200C2F575 /* OffsetKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OffsetKit;
+		};
+		D6B8C7F630109BA700C2F575 /* OffsetKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OffsetKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D6B8C7A33010978F00C2F575 /* Project object */;
 }

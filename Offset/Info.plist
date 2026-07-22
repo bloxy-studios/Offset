@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.bloxy-studios.Offset.refresh.schedule</string>
+		<string>com.bloxy-studios.Offset.refresh.news</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.bloxy-studios.Offset.links</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>offset</string>
+			</array>
+		</dict>
+	</array>
+	<key>EXA_API_KEY</key>
+	<string>$(EXA_API_KEY)</string>
+	<key>FINNHUB_API_KEY</key>
+	<string>$(FINNHUB_API_KEY)</string>
+	<key>NSAlarmKitUsageDescription</key>
+	<string>Offset uses alarms so critical market opens can break through Silent mode when you ask them to.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>processing</string>
+		<string>fetch</string>
+	</array>
+</dict>
+</plist>
