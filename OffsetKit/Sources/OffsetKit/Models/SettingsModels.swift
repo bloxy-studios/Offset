@@ -92,7 +92,7 @@ nonisolated public enum TimeDisplayMode: String, Codable, Sendable {
 nonisolated public struct AppSettings: Codable, Sendable {
     public var traderLevel: TraderLevel                 // default .beginner
     public var enabledMarkets: Set<MarketID>            // default: all seven
-    public var alertRules: [AlertRule]                  // Beginner default set defined in 04 (lands M4)
+    public var alertRules: [AlertRule]                  // default set: 04 §2.1 R1–R20 (only R1–R4 enabled)
     public var econCurrencies: Set<String>              // default ["USD","GBP","EUR","JPY","AUD"]
     public var briefingTime: WallClockTime              // default 07:30 (device-local)
     public var conventions: ConventionSettings
@@ -103,7 +103,7 @@ nonisolated public struct AppSettings: Codable, Sendable {
     public init(
         traderLevel: TraderLevel = .beginner,
         enabledMarkets: Set<MarketID> = Set(MarketID.allCases),
-        alertRules: [AlertRule] = [],
+        alertRules: [AlertRule] = AlertRule.defaultRules(),
         econCurrencies: Set<String> = ["USD", "GBP", "EUR", "JPY", "AUD"],
         briefingTime: WallClockTime = WallClockTime(hour: 7, minute: 30),
         conventions: ConventionSettings = ConventionSettings(),

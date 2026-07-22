@@ -169,7 +169,23 @@ struct AppSettingsTests {
         let settings = AppSettings()
         #expect(settings.traderLevel == .beginner)
         #expect(settings.enabledMarkets == Set(MarketID.allCases))
-        #expect(settings.alertRules.isEmpty)          // Beginner default rules land in M4 (04 §2)
+        // Default AlertRule set: 04 §2.1 R1–R20, only R1–R4 enabled.
+        #expect(settings.alertRules.count == 20)
+        let enabled = settings.alertRules.filter(\.enabled)
+        #expect(enabled.count == 4)
+        #expect(enabled.allSatisfy { $0.style == .timeSensitive })
+        #expect(enabled.allSatisfy { $0.moments == [.atOpen, .before(minutes: 15)] })
+        let enabledTargets = Set(enabled.map(\.target))
+        #expect(enabledTargets == [
+            .market(.fxLondon, .regular), .market(.fxNewYork, .regular),
+            .market(.usEquities, .regular), .econ(minImpact: .high),
+        ])
+        #expect(settings.alertRules.count(where: { if case .killzone = $0.target { true } else { false } }) == 5)
+        let enabledKillzoneRules = settings.alertRules.filter { rule in
+            guard rule.enabled, case .killzone = rule.target else { return false }
+            return true
+        }
+        #expect(enabledKillzoneRules.isEmpty)   // T22 precondition: Beginner ships killzone rules disabled
         #expect(settings.econCurrencies == ["USD", "GBP", "EUR", "JPY", "AUD"])
         #expect(settings.briefingTime == WallClockTime(hour: 7, minute: 30))
         #expect(settings.timeDisplayMode == .both)
