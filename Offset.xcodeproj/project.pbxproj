@@ -14,7 +14,6 @@
 		D6B8C7F730109BA700C2F575 /* OffsetKit in Frameworks */ = {isa = PBXBuildFile; productRef = D6B8C7F630109BA700C2F575 /* OffsetKit */; };
 		D6B8C7FA30109C4700C2F575 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */; };
 		D6B8C7FB30109C4700C2F575 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */; };
-		D6B8C80B3010AB9B00C2F575 /* BUILDLOG.md in Sources */ = {isa = PBXBuildFile; fileRef = D6B8C80A3010AB8300C2F575 /* BUILDLOG.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +64,7 @@
 		D6B8C7F330109A4D00C2F575 /* OffsetKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OffsetKit; sourceTree = "<group>"; };
 		D6B8C7F930109C2A00C2F575 /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 		D6B8C7FF3010A4F600C2F575 /* OffsetWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OffsetWidgetsExtension.entitlements; sourceTree = "<group>"; };
-		D6B8C80A3010AB8300C2F575 /* BUILDLOG.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUILDLOG.md; sourceTree = "<group>"; };
+		D6B8C80A3010AB8300C2F575 /* BUILDLOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BUILDLOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -382,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6B8C80B3010AB9B00C2F575 /* BUILDLOG.md in Sources */,
 				D6B8C7FA30109C4700C2F575 /* SharedConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
