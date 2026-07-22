@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    # OPTION A (recommended): your Mac, registered as a self-hosted runner labeled "offset".
+    runs-on: [self-hosted, macOS, offset]
+    # OPTION B: GitHub-hosted fallback — replace the line above with:
+    #   runs-on: macos-latest
+    # (macOS minutes bill at 10x on private repos; the Xcode check below verifies 26.x is present)
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode 26.x (no sudo needed — uses DEVELOPER_DIR)
+        run: |
+          set -euo pipefail
+          echo "Available Xcode installs:"
+          ls -d /Applications/Xcode*.app
+          CANDIDATE=$(ls -d /Applications/Xcode*.app | sort -V | tail -1)
+          echo "DEVELOPER_DIR=$CANDIDATE/Contents/Developer" >> "$GITHUB_ENV"
+          export DEVELOPER_DIR="$CANDIDATE/Contents/Developer"
+          xcodebuild -version
+          xcodebuild -version | grep -q "Xcode 26" || { echo "::error::Xcode 26.x required but not found on this runner"; exit 1; }
+
+      - name: Ensure Secrets.xcconfig exists (placeholders are fine — app degrades gracefully)
+        run: |
+          [ -f Config/Secrets.xcconfig ] || cp Config/Secrets.example.xcconfig Config/Secrets.xcconfig
+
+      - name: Pick newest available iPhone simulator
+        id: sim
+        run: |
+          set -euo pipefail
+          SIM_NAME=$(xcrun simctl list devices available --json | python3 -c "
+          import json,sys
+          data=json.load(sys.stdin)['devices']
+          best=None
+          for rt,devs in data.items():
+              if 'iOS' not in rt: continue
+              for d in devs:
+                  if d.get('isAvailable') and d['name'].startswith('iPhone'):
+                      key=(rt, 'Pro' in d['name'], d['name'])
+                      if best is None or key>best[0]: best=(key,d['name'])
+          print(best[1] if best else '')")
+          [ -n "$SIM_NAME" ] || { echo "::error::No available iPhone simulator with an iOS runtime"; exit 1; }
+          echo "Using simulator: $SIM_NAME"
+          echo "name=$SIM_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Build (app + widget extension, unsigned)
+        run: |
+          set -o pipefail
+          xcodebuild -scheme Offset \
+            -destination "platform=iOS Simulator,name=${{ steps.sim.outputs.name }}" \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Test (OffsetKit engine tests + app tests)
+        run: |
+          set -o pipefail
+          rm -rf TestResults.xcresult
+          xcodebuild -scheme Offset \
+            -destination "platform=iOS Simulator,name=${{ steps.sim.outputs.name }}" \
+            CODE_SIGNING_ALLOWED=NO \
+            -resultBundlePath TestResults.xcresult \
+            test
+
+      - name: Upload result bundle on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults-${{ github.run_number }}
+          path: TestResults.xcresult
+          if-no-files-found: ignore
